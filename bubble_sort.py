@@ -6,9 +6,11 @@ def is_sorted(array):
   return True
 
 def bubble_sort(array):
-  while not is_sorted(array):
-    for index in range(0, len(array) - 1):
-      if array[index] > array[index+1]:
-        temp = array[index]
-        array[index] = array[index+1]
-        array[index+1] = temp
+  result = array[:]
+  while not is_sorted(result):
+    for index in range(0, len(result) - 1):
+      if result[index] > result[index+1]:
+        temp = result[index]
+        result[index] = result[index+1]
+        result[index+1] = temp
+  return result
