@@ -6,5 +6,5 @@ def selection_sort(array):
     unsorted_min = min(unsorted)
     result[i] = unsorted_min
     unsorted.remove(unsorted_min)
-
+    
   return result
