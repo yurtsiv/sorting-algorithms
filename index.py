@@ -2,6 +2,7 @@ from bubble_sort import bubble_sort
 from selection_sort import selection_sort 
 from insertion_sort import insertion_sort
 from bucket_sort import bucket_sort
+from merge_sort import merge_sort
 
 arr = [5,3,2,6,7,9,0]
 
@@ -16,3 +17,6 @@ print(insertion_sort(arr))
 
 print("Bucket sort")
 print(bucket_sort(arr, 3))
+
+print("Merge sort")
+print(merge_sort(arr))
