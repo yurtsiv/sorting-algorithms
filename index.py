@@ -3,6 +3,7 @@ from selection_sort import selection_sort
 from insertion_sort import insertion_sort
 from bucket_sort import bucket_sort
 from merge_sort import merge_sort
+from comb_sort import comb_sort
 
 arr = [5,3,2,6,7,9,0]
 
@@ -20,3 +21,6 @@ print(bucket_sort(arr, 3))
 
 print("Merge sort")
 print(merge_sort(arr))
+
+print("Comb sort")
+print(comb_sort(arr, 1.3))
