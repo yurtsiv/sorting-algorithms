@@ -5,6 +5,7 @@ from bucket_sort import bucket_sort
 from merge_sort import merge_sort
 from comb_sort import comb_sort
 from library_sort import library_sort
+from shell_sort import shell_sort
 
 arr = [5,3,2,6,7,9,0]
 
@@ -28,3 +29,6 @@ print(comb_sort(arr, 1.3))
 
 print("Library sort")
 print(library_sort(arr, 0.5))
+
+print("Shell sort")
+print(shell_sort(arr, [4,3,2,1]))
