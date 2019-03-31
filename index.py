@@ -6,6 +6,7 @@ from merge_sort import merge_sort
 from comb_sort import comb_sort
 from library_sort import library_sort
 from shell_sort import shell_sort
+from quick_sort import quick_sort
 
 arr = [5,3,2,6,7,9,0]
 
@@ -32,3 +33,6 @@ print(library_sort(arr, 0.5))
 
 print("Shell sort")
 print(shell_sort(arr, [4,3,2,1]))
+
+print("Quick sort")
+print(quick_sort(arr))
