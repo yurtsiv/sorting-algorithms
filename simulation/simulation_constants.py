@@ -1,25 +1,29 @@
-import Enum
+from enum import Enum
+
+from library_sort import *
+from shell_sort import *
+from quick_sort import *
 
 algorithms = [ 
   {
-    name: 'Library sort',
-    func: library_sort,
-    additional_param: [
+    'name': 'Library sort',
+    'func': library_sort,
+    'additional_param': [
       0.1, 0.5, 1 # epsilon
     ] 
   },
   {
-    name: 'Shell sort',
-    func: shell_sort,
-    additional_param: [
+    'name': 'Shell sort',
+    'func': shell_sort,
+    'additional_param': [
       [5, 2, 1],
       [10, 5, 2, 1],
       [20, 10, 5, 2, 1]
     ]
   },
   {
-    name: 'Quick sort',
-    func: quick_sort
+    'name': 'Quick sort',
+    'func': quick_sort
   }
 ]
 
