@@ -2,32 +2,34 @@ from enum import Enum
 
 from library_sort import *
 from shell_sort import *
-from quick_sort import *
+from quick_sort_iterative import *
 
 algorithms = [ 
   {
     'name': 'Library sort',
     'func': library_sort,
     'additional_param': [
-      0.1, 0.5, 1 # epsilon
+      0.5 # epsilon
     ] 
   },
   {
     'name': 'Shell sort',
     'func': shell_sort,
     'additional_param': [
-      [5, 2, 1],
-      [10, 5, 2, 1],
-      [20, 10, 5, 2, 1]
+      [10000, 1000, 500, 100, 50, 30, 10, 5, 2, 1],
+      [1000, 500, 100, 50, 30, 10, 5, 2, 1],
+      [20, 10, 5, 2, 1],
+      [10, 5, 2, 1]
     ]
   },
   {
     'name': 'Quick sort',
-    'func': quick_sort
+    'func': quick_sort_iterative,
+    'additional_param': None
   }
 ]
 
-sequence_lengths = [100000, 500000, 1000000, 200000]
+sequence_lengths = [10]
 
 class SequenceTypes(Enum):
   RANDOM = 'RANDOM',

@@ -1,6 +1,4 @@
-import math
-
-def quick_sort(array):
+def quick_sort_recursive(array):
   if len(array) == 1 or len(array) == 0:
     return array
 
@@ -10,4 +8,4 @@ def quick_sort(array):
   left_sorted = quick_sort(min)
   right_sorted = quick_sort(max)
 
-  return left_sorted + [pivot] + right_sorted
+  return left_sorted + [pivot] + right_sorted 

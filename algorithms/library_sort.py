@@ -12,7 +12,7 @@ def library_sort(array, epsilon):
                 free_space(sorted_res, insert_position)
 
             sorted_res[insert_position] = array[current_pos]
-            current_pos += 1;
+            current_pos += 1
 
             if current_pos > len(array):
                 return [e for e in sorted_res if e != None]
