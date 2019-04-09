@@ -11,10 +11,9 @@ def run_simulation():
       print("Seq. len: " + str(sequence_length))
       for sequence_type in SequenceTypes:
         print(sequence_type)
-        for sequence_id in range(0, 100):
+        for sequence_id in range(0, 1):
           seq = generate_sequence(sequence_length, sequence_type)
           result = run_algorithm(algorithm, seq)
           print(result)
           all_results.append(result)
 
-  print(all_results)
