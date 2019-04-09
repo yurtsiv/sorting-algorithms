@@ -1,8 +1,25 @@
 import math
 
-def find_insert_position(array, elem):
+def get_final_arr_len(unsorted_arr, epsilon):
+    init_len = math.floor((1+epsilon)*len(unsorted_arr))
+    final_len = init_len
+
+    insert_in_round = 1
+
+    rounds = math.floor(math.log2(len(unsorted_arr)))
+    for _ in range(0, rounds):
+        final_len += min(
+            (2+2*epsilon) * insert_in_round,
+            (1+epsilon) * final_len
+        )
+
+        insert_in_round *= 2
+
+    return int(final_len)
+
+def find_insert_position(array, elem, end_index):
     start = 0
-    end = len(array) - 1
+    end = end_index
 
     while start < end:
         middle_index = math.floor((end + start) / 2)
@@ -37,17 +54,14 @@ def find_insert_position(array, elem):
 
     if end < 0:
         return 0
-    elif start >= len(array):
-        return len(array) - 1
+    elif start >= end_index:
+        return end_index
 
-    return start
+    return end
 
-def free_space(array, index, elem):
+def free_space(array, index, elem, end_index):
     shift_right = False
-    for i in range(index, len(array)):
-        if array[i] != None and array[i] > elem:
-            break
-
+    for i in range(index, end_index + 1):
         if array[i] == None:
             shift_right = True
             break
@@ -71,11 +85,11 @@ def free_space(array, index, elem):
     array[index] = None
 
 def rebalance(array, end_index, prev_end_index):
-    gap_size = len(array) // prev_end_index 
-    insert_index = len(array) - 1
-    elems_to_move = (end_index - prev_end_index) / gap_size
+    gap_size = 3
+    insert_index = end_index
+    elems_to_move = int((end_index - prev_end_index) / gap_size)
     
-    for i in range(prev_end_index - 1, 0, -1):
+    for i in range(prev_end_index, 0, -1):
         if elems_to_move == 0:
             break
         

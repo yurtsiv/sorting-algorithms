@@ -1,46 +1,35 @@
 import math
 from library_sort_helpers import *
 
-def library_sort(array, epsilon):
-    init_len = math.floor((1+epsilon)*len(array))
-    final_len = init_len
-    rounds = math.floor(math.log2(len(array)))
-    ins_in_round = 1
-    for i in range(0, rounds):
-        final_len += min(
-            (2+2*epsilon) * ins_in_round,
-            (1+epsilon) * final_len
-        )
-        ins_in_round *= 2
+def library_sort(unsorted_arr, epsilon):
+    sorted_res = [None] * get_final_arr_len(unsorted_arr, epsilon) 
 
-
-    sorted_res = [None] * int(final_len)
     insert_in_round = 1
-    current_pos = 0
-    end_index = math.floor((1+epsilon)*len(array))
+    current_elem_index = 0
+    sorted_end_index = math.floor((1+epsilon) * len(unsorted_arr))
 
-
-    while current_pos < len(array):
+    while current_elem_index < len(unsorted_arr):
         for _ in range(0, insert_in_round):
-            print(current_pos)
-            current_elem = array[current_pos]
-            insert_position = find_insert_position(sorted_res, current_elem)
+            print(current_elem_index)
+            current_elem = unsorted_arr[current_elem_index]
+            insert_position = find_insert_position(sorted_res, current_elem, sorted_end_index)
             
             if sorted_res[insert_position] != None:
-                free_space(sorted_res, insert_position, current_elem)
+                free_space(sorted_res, insert_position, current_elem, sorted_end_index)
 
             sorted_res[insert_position] = current_elem 
-            current_pos += 1
-            if current_pos == len(array):
+            current_elem_index += 1
+
+            if current_elem_index == len(unsorted_arr):
                 return filter_empty(sorted_res) 
 
-        prev_end = end_index
-        end_index = int(min(
+        prev_end = sorted_end_index
+        sorted_end_index += int(min(
             (2+2*epsilon) * insert_in_round,
-            (1+epsilon) * end_index
-        ))
+            (1+epsilon) * prev_end
+        )) - 1
 
-        rebalance(sorted_res, end_index, prev_end) 
+        rebalance(sorted_res, sorted_end_index, prev_end) 
         insert_in_round *= 2
 
     return filter_empty(sorted_res)

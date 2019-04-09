@@ -1,14 +1,15 @@
 import time
 
 def run_algorithm(algorithm, sequence):
+  sequence_copy = sequence[:]
   start = time.time()
   additional_param = algorithm.get('additional_param')
   algorithm_func = algorithm.get('func')
   res = []
   if (additional_param):
-    res = algorithm_func(sequence, additional_param[0])
+    res = algorithm_func(sequence_copy, additional_param[0])
   else:
-    res = algorithm_func(sequence)
+    res = algorithm_func(sequence_copy)
   
   end = time.time()
 

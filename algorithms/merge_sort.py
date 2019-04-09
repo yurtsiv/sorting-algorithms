@@ -1,21 +1,19 @@
 import math
 
-def merge(arr1, arr2):
+def merge(left, right):
     result = []
-    smaller_len = min(len(arr1), len(arr2))
-    while len(arr1) != 0 and len(arr2) != 0:
-        if arr1[0] < arr2[0]:
-            result.append(arr1[0])
-            arr1.pop(0)
+    left_pointer = right_pointer = 0
+
+    while left_pointer < len(left) and right_pointer < len(right): 
+        if left[left_pointer] < right[right_pointer]:
+            result.append(left[left_pointer])
+            left_pointer += 1
         else:
-            result.append(arr2[0])
-            arr2.pop(0)
+            result.append(right[right_pointer])
+            right_pointer += 1
 
-    for elem in arr1:
-        result.append(elem)
-
-    for elem in arr2:
-        result.append(elem)
+    result.extend(left[left_pointer:])
+    result.extend(right[right_pointer:])
 
     return result
 
