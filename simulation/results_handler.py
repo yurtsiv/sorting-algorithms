@@ -1,3 +1,4 @@
+import statistics
 import json
 
 def handle_result(results):
@@ -23,9 +24,13 @@ def handle_result(results):
             seq_len_times.append(exec_time)
             seq_type_times.append(exec_time)
 
-        results[alg][seq_len][seq_type]['exec_times'] = seq_type_times       
-      results[alg][seq_len]['exec_times'] = seq_len_times
-    results[alg]['exec_times'] = alg_exec_times
+      results[alg][seq_len][seq_type]['exec_times'] = seq_type_times       
+      results[alg][seq_len][seq_type]['average_time'] = statistics.mean(seq_type_times)
+    results[alg][seq_len]['exec_times'] = seq_len_times
+    results[alg][seq_len]['average_time'] = statistics.mean(seq_len_times)
+  results[alg]['exec_times'] = alg_exec_times
+  results[alg]['average_time'] = statistics.mean(alg_exec_times)
+
 
 
 
