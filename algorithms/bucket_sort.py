@@ -1,8 +1,12 @@
 import math
-from bubble_sort import bubble_sort
+
+from algorithms import bubble_sort
 
 def bucket_sort(array, bucket_size):
-    buckets_num = math.ceil(len(array) / bucket_size);
+    if bucket_size < 1 or bucket_size > len(array):
+        raise Exception("Incorrect bucket size")
+
+    buckets_num = math.ceil(len(array) / bucket_size)
     buckets = [[] * buckets_num]
     max_elem = max(array)
 

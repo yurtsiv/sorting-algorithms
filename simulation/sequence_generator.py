@@ -1,6 +1,6 @@
 import random
 
-from simulation_constants import SequenceTypes 
+from simulation.simulation_constants import SequenceTypes
 
 max_num = 10000
 

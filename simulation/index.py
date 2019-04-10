@@ -1,7 +1,7 @@
-from simulation_constants import *
-from sequence_generator import *
-from algorithm_runner import *
-from results_handler import *
+from simulation.simulation_constants import *
+from simulation.sequence_generator import *
+from simulation.algorithm_runner import *
+from simulation.results_handler import *
 
 def run_simulation():
   all_results = {} 
