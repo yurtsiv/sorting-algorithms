@@ -1,5 +1,5 @@
 import ui
 import simulation
 
-simulation.run_simulation()
-# ui.run_ui()
+# simulation.run_simulation()
+ui.run_ui()
