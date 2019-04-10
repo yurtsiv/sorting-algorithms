@@ -2,8 +2,10 @@ import random
 
 from simulation_constants import SequenceTypes 
 
+max_num = 10000
+
 def get_random_seq(length):
-  return [random.randint(0, length) for _ in range(0, length)]
+  return [random.randint(0, max_num) for _ in range(0, length)]
 
 def get_sorted_seq(length):
   return [e for e in range(0, length)]
