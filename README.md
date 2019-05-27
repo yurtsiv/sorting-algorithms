@@ -9,5 +9,5 @@ Implementation of Bubble, Insertion, Selection, Bucket, Comb, Shell, Merge & Qui
 * Sequence type: random, sorted descending, half-sorted, sorted
 * [Gap sequences](https://en.wikipedia.org/wiki/Shellsort#Gap_sequences) (for Shell sort): Shell, Frank & Lazarus, Hibbard 
 
-P.S. Simulation was performed on Intel Core i5-8250U @ 1.60GHz, 8Gb RAM machine.
+P.S. Simulation was performed on `Intel Core i5-8250U @ 1.60GHz, 8Gb RAM` machine.
 
